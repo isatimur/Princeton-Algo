@@ -7,6 +7,7 @@ public class PercolationStats {
     // perform T independent experiments on an N-by-N grid
 
     public PercolationStats(int T, int N) {
+        if (N <= 0) throw new IndexOutOfBoundsException();
         xt = new double[T];
         for (int k = 0; k < T; k++) {
             Percolation percolation = new Percolation(N);
@@ -20,7 +21,7 @@ public class PercolationStats {
                 }
 
             }
-            xt[k] = (double)count/(N*N);
+            xt[k] = (double) count / (N * N);
         }
     }
 
@@ -28,12 +29,11 @@ public class PercolationStats {
         int T = StdIn.readInt();
         int N = StdIn.readInt();
         Stopwatch stopwatch = new Stopwatch();
-        PercolationStats stats = new PercolationStats(200,1000);
+        PercolationStats stats = new PercolationStats(200, 1000);
         System.out.println(stopwatch.elapsedTime());
         System.out.println(stats.mean());
         System.out.println(stats.stddev());
-        System.out.println(stats.confidenceLo()+", "+stats.confidenceHi());
-
+        System.out.println(stats.confidenceLo() + ", " + stats.confidenceHi());
 
 
     }
