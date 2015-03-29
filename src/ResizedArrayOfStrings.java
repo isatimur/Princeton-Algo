@@ -21,7 +21,6 @@ public class ResizedArrayOfStrings {
         StdOut.print(arrayOfStrings);
 
 
-
     }
 
     public void push(String item) {
@@ -42,7 +41,7 @@ public class ResizedArrayOfStrings {
     private String pop() {
         String item = s[--N];
         s[N] = null;
-        if(N>0 && N == s.length/4) resize(s.length/2);
+        if (N > 0 && N == s.length / 4) resize(s.length / 2);
         return item;
     }
 
@@ -53,8 +52,8 @@ public class ResizedArrayOfStrings {
     @Override
     public String toString() {
         String output = "";
-        for (int i = 0; i <s.length ; i++) {
-            output= output+s[i]+",";
+        for (int i = 0; i < s.length; i++) {
+            output = output + s[i] + ",";
         }
         return output;
     }

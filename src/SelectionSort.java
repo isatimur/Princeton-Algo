@@ -17,11 +17,11 @@ public class SelectionSort {
     }
 
     private static boolean less(Comparable v, Comparable w) {
-        return (v.compareTo(w)==-1);
+        return (v.compareTo(w) == -1);
     }
 
     private static void exch(Comparable[] a, int i, int min) {
-        Comparable t =a[i];
+        Comparable t = a[i];
         a[i] = a[min];
         a[min] = t;
     }
