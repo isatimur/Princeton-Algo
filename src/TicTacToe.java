@@ -27,18 +27,22 @@ public class TicTacToe {
     public static void main(String[] args) {
         TicTacToe ticTacToe = new TicTacToe(9);
         outputBoard();
+        int counter = 1;
         while (StdIn.hasNextLine() && !StdIn.isEmpty()) {
             String input = StdIn.readString();
             String[] ttt = input.split("-");
             int idStep = Integer.parseInt(ttt[0]);
             matrix[idStep] = (char) ttt[1].charAt(0);
             outputBoard();
-            if (hasWin()) {
-                System.out.println("The winner is " + winner);
-                break;
-            } else if (isBoardFull()) {
-                System.out.println("The game is over with draw!");
-                break;
+            counter++;
+            if (counter >= (2 * N)) {
+                if (hasWin()) {
+                    System.out.println("The winner is " + winner);
+                    break;
+                } else if (isBoardFull()) {
+                    System.out.println("The game is over with draw!");
+                    break;
+                }
             }
         }
     }
